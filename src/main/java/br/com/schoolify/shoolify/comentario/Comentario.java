@@ -17,6 +17,7 @@ public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (columnDefinition = "TEXT")
     private String conteudo;
     private LocalDateTime dataHora;
 }

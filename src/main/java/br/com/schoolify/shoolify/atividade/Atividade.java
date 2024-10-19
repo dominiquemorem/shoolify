@@ -20,5 +20,6 @@ public class Atividade {
     private String titulo;
     private LocalDateTime dataInicio;
     private LocalDateTime dataEntrega;
+    @Column (columnDefinition = "TEXT")
     private String descricao;
 }

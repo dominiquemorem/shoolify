@@ -22,6 +22,7 @@ public class Evento {
     private String nome;
     private LocalDate dataInicio;
     private LocalTime horaInicio;
+    @Column (columnDefinition = "TEXT")
     private String descricao;
 
     @ManyToOne
