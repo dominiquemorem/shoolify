@@ -2,6 +2,7 @@ package br.com.schoolify.shoolify.evento;
 
 import br.com.schoolify.shoolify.usuario.Usuario;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,12 @@ public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String nome;
+    @NotNull
     private LocalDate dataInicio;
     private LocalTime horaInicio;
+    @NotNull
     @Column (columnDefinition = "TEXT")
     private String descricao;
 

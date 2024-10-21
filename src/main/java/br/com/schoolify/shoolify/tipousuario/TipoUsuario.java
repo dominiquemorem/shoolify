@@ -1,9 +1,14 @@
 package br.com.schoolify.shoolify.tipousuario;
 
+
+import br.com.schoolify.shoolify.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_tipo_usuario")
@@ -15,5 +20,8 @@ public class TipoUsuario {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descricao;
+    private ClasseUsuario tipoUsuario;
+
+    @OneToMany (mappedBy = "tipoUsuario")
+    private List<Usuario> usuarios = new ArrayList<>();
 }

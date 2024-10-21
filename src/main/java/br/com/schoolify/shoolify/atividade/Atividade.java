@@ -1,11 +1,15 @@
 package br.com.schoolify.shoolify.atividade;
 
+import br.com.schoolify.shoolify.comentario.Comentario;
+import br.com.schoolify.shoolify.discprofturma.DiscProfTurma;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -22,4 +26,11 @@ public class Atividade {
     private LocalDateTime dataEntrega;
     @Column (columnDefinition = "TEXT")
     private String descricao;
+
+    @OneToMany (mappedBy = "atividade")
+    private List<Comentario> comentarios = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn (name = "discprofturma_id")
+    private DiscProfTurma discProfTurma;
 }
